@@ -1,0 +1,41 @@
+Total and average sales
+sql
+Copy code
+-- Total sales
+SELECT SUM(Quantity  UnitPrice) AS total_sales
+FROM your_table_name;
+
+-- Average sales
+SELECT AVG(Quantity  UnitPrice) AS average_sales
+FROM your_table_name;
+Order details with maximum cost
+sql
+Copy code
+SELECT 
+FROM your_table_name
+ORDER BY (Quantity  UnitPrice) DESC
+LIMIT 1;
+Customer details with maximum order total
+sql
+Copy code
+SELECT CustomerID, SUM(Quantity  UnitPrice) AS total_order
+FROM your_table_name
+GROUP BY CustomerID
+ORDER BY total_order DESC
+LIMIT 1;
+Country with maximum and minimum sale
+sql
+Copy code
+-- Maximum sale
+SELECT Country, SUM(Quantity  UnitPrice) AS total_sales
+FROM your_table_name
+GROUP BY Country
+ORDER BY total_sales DESC
+LIMIT 1;
+
+-- Minimum sale
+SELECT Country, SUM(Quantity  UnitPrice) AS total_sales
+FROM your_table_name
+GROUP BY Country
+ORDER BY total_sales
+LIMIT 1;
